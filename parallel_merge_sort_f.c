@@ -55,7 +55,7 @@ void saveResultToFile_fixed(const char* filename, float arr[], int count) {
         if (file == NULL) {
                 perror("no");
                 char local_file[1024];
-                snprintf(local_file, sizeof (local_file), ",/%s", filename);
+                snprintf(local_file, sizeof (local_file), "./%s", filename);
                 printf("try %s\n", local_file);
                 file = fopen(local_file, "w");
                 if (file == NULL) {
@@ -82,16 +82,7 @@ void saveResultToFile_fixed(const char* filename, float arr[], int count) {
 }
       fclose(file);
       printf("over %d\n", written);
-      FILE* verify = fopen(filename, "r");
-      if (verify) {
-              int verify_count;
-              fscanf(verify, "%d", &verify_count);
-              fclose(verify);
-              printf("verify  %d\n", verify_count);
-}
-      else {
-              printf("warn no\n");
-}
+
 }
 int isSorted(float arr[], int count) {
         printf("verify\n");
